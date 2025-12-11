@@ -1,7 +1,6 @@
 from rectangle import Rectangle
 from inputData import InputData
 
-
 class RectangleController():
     def __init__(self):
         self.rectangle = Rectangle()
@@ -20,19 +19,11 @@ class RectangleController():
                     print("Kilépés ...")
                     exit()
                 case 1:
-                     self.getData(choice)
+                    sideA, sideB = self.inputData.getFloatList(["A oldal",  "B oldal"])
+                    print("\nA tégla kerülete:", self.rectangle.calcPher(sideA,sideB))  
                 case 2:
-                    self.getData(choice)
+                    sideA, sideB = self.inputData.getFloatList(["A oldal",  "B oldal"])
+                    print("\nA tégla területe:", self.rectangle.calcArea(sideA,sideB))  
                 case _:
                     print("Nincs a választások között!Válasszon másikat.")
                     
-    def getData(self,choice):
-        if choice == 1:
-                sideA = self.inputData.getFloat("Adja meg a tégla A oldalát:")                   
-                sideB = self.inputData.getFloat("Adja meg a tégla B oldalát:")  
-                print("\nA tégla kerülete", self.rectangle.calcPher(sideA,sideB))  
-        elif choice == 2:
-                sideA = self.inputData.getFloat("Adja meg a tégla A oldalát:")                  
-                sideB = self.inputData.getFloat("Adja meg a tégla B oldalát:")    
-                print("\nA tégla kerülete", self.rectangle.calcArea(sideA,sideB))  
-                

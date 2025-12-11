@@ -25,10 +25,25 @@ class InputData:
     def getFloat( self,text ):
         
         numberStr = input( text )
-        pattern = r"^(?!0*\.?0+$)(?:[1-9]\d*|\d*\.\d+)$"
-        while( not re.match( pattern, numberStr )):
+        while( not re.match( "[0.-9.]+$", numberStr )):
 
             print( "Hibás adat!")
             numberStr = input( text )
 
         return float( numberStr )
+    
+    def getFloatList(self, labels):
+        values = []
+        for label in labels:
+                numberStr = input(f"Adja meg a(z) {label}-t:")
+                while True:
+                    try:
+                        value = float(numberStr)
+                        if value <= 0:
+                            raise ValueError
+                        values.append(value)
+                        break
+                    except ValueError:
+                        numberStr = input(f"Hibás adat! Adja meg újra a(z) {label}-t:")
+
+        return tuple(values)

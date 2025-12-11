@@ -3,7 +3,10 @@ from inputData import InputData
 
 class TriangleController():
     def __init__(self):
-        self.menu()
+        self.triangle = Triangle()
+        self.inputData = InputData()
+        choice = self.menu()
+        self.getTriangleResult(choice)
 
     def menu(self):
         print("\nA háromszöget választotta!" + "\n[0.]Kilépés\n"+"[1.]Kerület\n" + "[2.]Terület\n" + "[3.]Heron terület")
@@ -16,16 +19,13 @@ class TriangleController():
                     print("Kilépés ...")
                     exit()
                 case 1:
-                    self.getData(choice) 
+                    sideA, sideB, sideC = self.inputData.getFloatList(["A oldal",  "B oldal", "C oldal"])
+                    print("\nA háromszög kerülete:", self.triangle.calcPher(sideA,sideB,sideC))
                 case 2:
-                    self.getData(choice)
+                    base, height = self.inputData.getFloatList(["alap",  "magasság"])
+                    print("\nA háromszög területe:", self.triangle.calcPher(base,height))
                 case 3:
-                    self.getData(choice)
+                    sideA, sideB, sideC = self.inputData.getFloatList(["A oldal",  "B oldal", "C oldal"])
+                    print("\nA háromszög területe (Heron):", self.triangle.calcPher(sideA,sideB,sideC))
                 case _:
                     print("Nincs a választások között!Válasszon másikat.")
-
-    def getData(self, choice):
-        sideA = self.inputData.getFloat("Adja meg a tégla A oldalát:")                    
-        sideB = self.inputData.getFloat("Adja meg a tégla B oldalát:")
-        print("\nA tégla kerülete", self.rectangle.calcArea(sideA,sideB))  
-                    
