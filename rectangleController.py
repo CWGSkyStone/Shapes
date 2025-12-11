@@ -1,14 +1,11 @@
 from rectangle import Rectangle
 from inputData import InputData
-from checker import Checker
 
 
-
-class rectangleController():
+class RectangleController():
     def __init__(self):
         self.rectangle = Rectangle()
         self.inputData = InputData()
-        self.checker = Checker()
         choice = self.menu() 
         self.getRectangleResult(choice)
     
@@ -23,22 +20,19 @@ class rectangleController():
                     print("Kilépés ...")
                     exit()
                 case 1:
-                    sideA = self.inputData.getInteger("Adja meg a tégla A oldalát:")
-                    while self.checker.checkZero(sideA):
-                        radius = self.inputData.getInteger("Adja meg a tégla A oldalát:")                      
-                    sideB = self.inputData.getInteger("Adja meg a tégla B oldalát:")
-                    while self.checker.checkZero(sideB):
-                        radius = self.inputData.getInteger("Adja meg a tégla B oldalát:")     
-                    print("\nA tégla kerülete", self.rectangle.calcPher(sideA,sideB))                       
+                     self.getData(choice)
                 case 2:
-                    sideA = self.inputData.getInteger("Adja meg a tégla A oldalát:")
-                    while self.checker.checkZero(sideA):
-                        radius = self.inputData.getInteger("Adja meg a tégla A oldalát:")                      
-                    sideB = self.inputData.getInteger("Adja meg a tégla B oldalát:")
-                    while self.checker.checkZero(sideB):
-                        radius = self.inputData.getInteger("Adja meg a tégla B oldalát:")     
-                    print("\nA tégla kerülete", self.rectangle.calcArea(sideA,sideB))  
+                    self.getData(choice)
                 case _:
                     print("Nincs a választások között!Válasszon másikat.")
                     
-test = rectangleController()
+    def getData(self,choice):
+        if choice == 1:
+                sideA = self.inputData.getFloat("Adja meg a tégla A oldalát:")                   
+                sideB = self.inputData.getFloat("Adja meg a tégla B oldalát:")  
+                print("\nA tégla kerülete", self.rectangle.calcPher(sideA,sideB))  
+        elif choice == 2:
+                sideA = self.inputData.getFloat("Adja meg a tégla A oldalát:")                  
+                sideB = self.inputData.getFloat("Adja meg a tégla B oldalát:")    
+                print("\nA tégla kerülete", self.rectangle.calcArea(sideA,sideB))  
+                

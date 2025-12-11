@@ -20,18 +20,15 @@ class InputData:
             print( "Hibás adat!" )
             numberStr = input( text )
 
-        number = int( numberStr )
-
-        return number
+        return int( numberStr )
 
     def getFloat( self,text ):
-
+        
         numberStr = input( text )
-        while( not re.match( "[0.-9.]+$", numberStr )):
+        pattern = r"^(?!0*\.?0+$)(?:[1-9]\d*|\d*\.\d+)$"
+        while( not re.match( pattern, numberStr )):
 
             print( "Hibás adat!")
             numberStr = input( text )
 
-        number = float( numberStr )
-
-        return number
+        return float( numberStr )

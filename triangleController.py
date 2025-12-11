@@ -1,4 +1,7 @@
-class triangleController():
+from triangle import Triangle
+from inputData import InputData
+
+class TriangleController():
     def __init__(self):
         self.menu()
 
@@ -13,10 +16,16 @@ class triangleController():
                     print("Kilépés ...")
                     exit()
                 case 1:
-                    pass 
+                    self.getData(choice) 
                 case 2:
-                    pass
+                    self.getData(choice)
                 case 3:
-                    pass
+                    self.getData(choice)
                 case _:
                     print("Nincs a választások között!Válasszon másikat.")
+
+    def getData(self, choice):
+        sideA = self.inputData.getFloat("Adja meg a tégla A oldalát:")                    
+        sideB = self.inputData.getFloat("Adja meg a tégla B oldalát:")
+        print("\nA tégla kerülete", self.rectangle.calcArea(sideA,sideB))  
+                    
