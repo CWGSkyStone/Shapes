@@ -1,15 +1,17 @@
 from rectangleController import RectangleController
 from circleController import CircleController
 from triangleController import TriangleController
+from parseText import ParseText
 
 class Controller:
 
     def __init__( self ):
+        self.text = ParseText("menuText.json")
         self.mainMenu()
 
     def mainMenu( self ):
         while True:
-            print("\nEz a program síkidomok kerület/terület számítására alkalmas!\n" + "Készítette: Szabó József" + "\n[0.]Kilépés\n"+"[1.]Háromszög\n" + "[2.]Tégla\n" + "[3.]Kör")
+            print("\n" + self.text.getMenu("main_menu"))
             choice = int(input("Válassza ki az adott síkidomok közül melyiknek szeretné megtudni a kerület/terület-ét:\n"))
             match choice:
                 case 0:
@@ -22,6 +24,6 @@ class Controller:
                 case 3:
                     CircleController()
                 case _:
-                    print("Nincs a választások között!Válasszon másikat.")
+                    print(self.text.getNoOption("main_menu"))
 
 main = Controller()

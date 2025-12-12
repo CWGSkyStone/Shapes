@@ -35,7 +35,7 @@ class InputData:
     def getFloatList(self, labels):
         values = []
         for label in labels:
-                numberStr = input(f"Adja meg a(z) {label}-t:")
+                numberStr = input(f"Adja meg a(z) {label}:")
                 while True:
                     try:
                         value = float(numberStr)
@@ -44,6 +44,6 @@ class InputData:
                         values.append(value)
                         break
                     except ValueError:
-                        numberStr = input(f"Hibás adat! Adja meg újra a(z) {label}-t:")
+                        numberStr = input(f"Hibás adat! Adja meg újra a(z) {label}:")
 
         return tuple(values)

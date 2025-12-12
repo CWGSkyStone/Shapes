@@ -1,0 +1,48 @@
+{
+    "main_menu":{
+        "title": "Ez a program síkidomok kerület/terület számítására alkalmas!",
+        "author": "Készítette: Szabó József",
+        "options": {
+            "0": "Kilépés",
+            "1": "Háromszög menü",
+            "2": "Téglalap menü",
+            "3": "Kör menü"
+        },
+        "no_option": "Nincs ilyen lehetőség! Próbálja újra."
+    },
+
+    "triangle_menu":{
+        "title": "Háromszög műveletek",
+        "options": {
+            "0": "Vissza",
+            "1": "Kerület",
+            "2": "Terület",
+            "3": "Terület Heron képlettel"
+        },
+        "no_option": "Hibás választás a téglalap menüben!"
+
+    },
+
+        "rectangle_menu":{
+        "title": "Téglalap műveletek",
+        "options": {
+            "0": "Vissza",
+            "1": "Kerület",
+            "2": "Terület"
+        },
+        "no_option": "Hibás választás a háromszög menüben!"
+
+    },
+
+
+        "circle_menu":{
+        "title": "Kör műveletek",
+        "options": {
+            "0": "Vissza",
+            "1": "Kerület",
+            "2": "Terület"
+        },
+        "no_option": "Hibás választás a kör menüben!"
+
+    }
+}
